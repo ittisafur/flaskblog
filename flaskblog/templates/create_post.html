@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Create a New Post</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="post">
+          {{form.hidden_tag()}}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Create</legend>
+              <div class="form-group">
+                  {{form.title.label(class="form-control-label")}}
+                  {{form.title(class="form-control form-control-lg")}}
+              </div>
+              <div class="form-group">
+                  {{form.content.label(class="form-control-label")}}
+                  {{form.content(class="form-control form-control-lg")}}
+              </div>
+          </fieldset>
+          <div class="form-group">
+              {{form.submit(class='btn btn-outline-info')}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
